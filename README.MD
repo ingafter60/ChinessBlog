@@ -77,3 +77,20 @@
 	modified:   db.sqlite3                              
 	modified:   templates/blog/index.html               
                                                     
+
+### Step 7: publish posts using django admin
+
+	1. Modify all models: blog\models.py 
+	2. Customize admin background: blog\admin.py
+
+	git status
+	----------
+ 		modified:   blog/__pycache__/admin.cpython-38.pyc
+        modified:   blog/__pycache__/apps.cpython-38.pyc
+        modified:   blog/__pycache__/models.cpython-38.pyc
+        modified:   blog/admin.py
+        modified:   blog/apps.py
+        new file:   blog/migrations/0002_auto_20200706_1034.py
+        new file:   blog/migrations/__pycache__/0002_auto_20200706_1034.cpython-38.pyc
+        modified:   blog/models.py
+        modified:   db.sqlite3	

@@ -1,9 +1,11 @@
 from django.contrib.auth.models import User
 from django.db import models
+from  django . utils  import  timezone
 
 # Create your models here.
 
 class Category(models.Model):
+    
     """
     Django requires models to inherit models.Model class.
     Category only needs a simple category name name.
@@ -13,43 +15,69 @@ class Category(models.Model):
     You can view the documentation for all types built into Django:
     https://docs.djangoproject.com/en/2.2/ref/models/fields/#field-types
     """
-    name = models.CharField(max_length=100)
+    # name = models.CharField(max_length=100)
+    name =  models.CharField('Class name', max_length=100 )
+
+    # class Meta:
+    #     verbose_name  =  'Classification'
+    #     verbose_name_plural = verbose_name
+
+    class Meta:
+        verbose_name  =  'Category'
+        verbose_name_plural = 'Categories'
 
     def __str__(self):
         return self.name
 
 
 class Tag(models.Model): 
+    
     """
     Tag is also relatively simple, just like Category.
     Again, we must inherit the models.Model class!
     """
-    name = models.CharField(max_length=100)
+    # name = models.CharField(max_length=100)
+    name = models.CharField('label name', max_length=100 )
+    
+    # class Meta:
+    #     verbose_name  =  'Label'
+    #     verbose_name_plural = verbose_name
+
+    class Meta:
+        verbose_name  =  'Tag'
+        verbose_name_plural = 'Tags'
 
     def __str__(self):
         return self.name
 
 
 class Post(models.Model):
+    
     """
     The database table of the article is a little more complicated, mainly involving more fields.
     """
 
-    # Articletitle
-    title = models.CharField(max_length=70)
-
+    # Article title
+    # title = models.CharField(max_length=70)
+    title = models.CharField('title', max_length=70)
+    
     # Article body, we used TextField.
     # CharField can be used to store short strings, but it may be a large text for the body of the article, so use TextField to store large text.
-    body = models.TextField()
+    # body = models.TextField()
+    body = models.TextField('body')
 
     # These two columns represent the creation time and last modification time of the article, and the field storing the time is of type DateTimeField.
-    created_time = models.DateTimeField()
-    modified_time = models.DateTimeField()
-
+    # created_time = models.DateTimeField()
+    created_time = models.DateTimeField('creation time', default=timezone.now)    
+    
+    # modified_time = models.DateTimeField()
+    modified_time= models.DateTimeField('modified time')
+    
     # Article summary, there can be no article summary, but by default CharField requires that we must store data, otherwise it will report an error.
     # Specify the blank=True parameter value of CharField to allow null values.
-    excerpt = models.CharField(max_length=200, blank=True)
-
+    # excerpt = models.CharField(max_length=200, blank=True)
+    excerpt = models.CharField('Abstract', max_length=200, blank=True)
+    
     # This is classification and labeling. The model of classification and labeling has been defined above.
     # Here we associate the database table corresponding to the article with the database table corresponding to the category and label, but the association form is slightly different.
     # We stipulate that one article can only correspond to one category, but there can be multiple articles under one category, so we use ForeignKey, which is a one-to-many association relationship.
@@ -59,14 +87,31 @@ class Post(models.Model):
     # At the same time, we stipulate that articles can have no tags, so we specify blank=True for tags.
     # If you don't know ForeignKey, ManyToManyField, please see the explanation in the tutorial, or refer to the official documentation:
     # https://docs.djangoproject.com/en/2.2/topics/db/models/#relationships
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    tags = models.ManyToManyField(Tag, blank=True)
-
+    
+    # category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    # tags = models.ManyToManyField(Tag, blank=True)
+    category = models.ForeignKey(Category, verbose_name='category', on_delete=models.CASCADE)
+    tags = models.ManyToManyField(Tag, verbose_name='tag', blank=True)
+    
     # Article author, here User is imported from django.contrib.auth.models.
     # django.contrib.auth is Django's built-in application, which is specially used to handle the registration and login processes of website users. User is the user model that Django has written for us.
     # Here we associate the article with User through ForeignKey.
     # Because we stipulate that an article can only have one author, and an author may write multiple articles, this is a one-to-many relationship, similar to Category.
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+   
+    # author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, verbose_name='author', on_delete=models.CASCADE)
+
+    # class Meta:
+    #     verbose_name  =  'Article'
+    #     verbose_name_plural = verbose_name
+
+    class Meta:
+        verbose_name  =  'Post'
+        verbose_name_plural = 'Posts'
 
     def __str__(self):
         return self.title   
+
+    def save(self, *args, **kwargs):
+        self.modified_time = timezone.now()
+        super().save(*args, **kwargs)        
