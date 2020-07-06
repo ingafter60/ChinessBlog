@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+  <article class="post post-{{ post.pk }}">
+    <!-- Header -->
+    <header class="entry-header">
+      <!-- Category title -->
+      <h1 class="entry-title">{{ post.title }}</h1>
+
+      <div class="entry-meta">
+        <!-- Category title -->
+        <span class="post-category">
+          <a href="#">{{ post.category.name }}</a>
+        </span>
+        <!-- Created time -->
+        <span class="post-date">
+          <a href="#">
+            <time class="entry-date" 
+              datetime="{{ post.created_time }}">
+            {{ post.created_time }}</time>
+          </a>
+        </span>
+        <!-- Author -->
+        <span class="post-author"><a href="#">{{ post.author }}</a></span>
+        <!-- Comments -->
+        <span class="comments-link"><a href="#">4 comments</a></span>
+        <!-- Views -->
+        <span class="views-count"><a href="#">588 Reading</a></span>
+      </div>
+    </header><!-- ends Header -->
+
+    <!-- Post body -->
+    <div class="entry-content clearfix">
+      {{ post.body }}
+    </div>
+  </article>
+
+  <section class="comment-area" id="comment-area">
+    <hr>
+    <h3>
+    Post a comment </ h3>
+    <form action="#" method="post" class="comment-form">
+      <div class="row">
+        <div class="col-md-4">
+          <label for="id_name">Name:</label>
+          <input type="text" id="id_name" name="name" required>
+        </div>
+        <div class="col-md-4">
+          <label for="id_email">Mailbox:</label>
+          <input type="email" id="id_email" name="email" required>
+        </div>
+        <div class="col-md-4">
+          <label for="id_url">URL:</label>
+          <input type="text" id="id_url" name="url">
+        </div>
+        <div class="col-md-12">
+          <label for="id_comment">Comment:</label>
+          <textarea name="comment" id="id_comment" required></textarea>
+          <button type="submit" class="comment-btn">Post</button>
+        </div>
+      </div>
+      <!-- row -->
+    </form>
+    <div class="comment-list-panel">
+      <h3>----Comment list of <span> 4 </span> comments </h3>
+      <ul class="comment-list list-unstyled">
+        <li class="comment-item">
+          <span class =" nickname "> dream chasers </ span>
+          <time class="submit-date" datetime="2012-11-09T23:15:57+00:00">March 12, 2017 14:56</time>
+          <div class="text">
+            The point of view of the article is reasonable and in line with human nature. This is really written to express the point of view, not to cater to the fans of certain celebrities. I think if Qiong Yao is an ex-wife, and after having three children, she was dug into the corner by an unknown woman, I don't believe anyone would say that the woman is pursuing true love, and that the woman who sympathizes with Qiong Yao for scolding Xiaosan is weak.
+          </div>
+        </li>
+        <li class="comment-item">
+          <span class="nickname">zmrenwu</span>
+          <time class="submit-date" datetime="2012-11-09T23:15:57+00:00">March 11, 2017 23:56</time>
+          <div class="text">
+            Instinct may break through the pattern, but sometimes the pattern also restrains instinct.
+          </div>
+        </li>
+        <li class="comment-item">
+          <span class =" nickname "> Batman </ span>
+          <time class="submit-date" datetime="2012-11-09T23:15:57+00:00">March 9, 2017 8:56</time>
+          <div class="text">
+            In fact, truth generally belongs to the silent majority. Those radical views can only attract those who are equally radical. In the past few years, Qiong Yao sued Yu for plagiarism. Everyone said that they were very popular, indicating that the audience who eat melons are just talking about things, not prejudicing Qiong Yao.
+          </div>
+        </li>
+        <li class="comment-item">
+          <span class =" nickname "> Changjiang Seventh </ span>
+          <time class="submit-date" datetime="2012-11-09T23:15:57+00:00">February 12, 2017 12:56</time>
+          <div class="text">
+            I really like the point of view! It’s just that it’s clear, and a little three, four, a mess, a mess, it’s almost troublesome.
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+{% endblock main %}
+
+{% block toc %}
+  <div class="widget widget-content">
+    <h3 class="widget-title"> from DETAIL - Article directory </h3>
+    <ul>
+      <li>
+        <a href="#"> Tutorial characteristics </a>
+      </li>
+      <li>
+        <a href="#"> who fit this tutorial </a>
+      </li>
+      <li>
+        <a href="#"> Online Preview </a>
+      </li>
+      <li>
+        <a href="#"> Resource List </a>
+      </li>
+      <li>
+        <a href="#"> Getting Help </a>
+      </li>
+    </ul>
+  </div>
+{% endblock toc %}

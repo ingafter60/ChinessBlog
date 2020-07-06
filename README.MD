@@ -94,3 +94,20 @@
         new file:   blog/migrations/__pycache__/0002_auto_20200706_1034.cpython-38.pyc
         modified:   blog/models.py
         modified:   db.sqlite3	
+
+### Step 8: blog detail view   
+
+	git status
+	----------
+		modified:   .gitignore
+        modified:   blog/__pycache__/models.cpython-38.pyc
+        modified:   blog/__pycache__/urls.cpython-38.pyc
+        modified:   blog/__pycache__/views.cpython-38.pyc
+        modified:   blog/models.py
+        modified:   blog/urls.py
+        modified:   blog/views.py
+        modified:   blogproject/__pycache__/urls.cpython-38.pyc
+        modified:   blogproject/urls.py
+        new file:   templates/base.html
+        new file:   templates/blog/detail.html
+        modified:   templates/blog/index.html
