@@ -29,3 +29,10 @@
 	4. register models to admin
 	5. run server
 	6. Add some categories, tags, and posts
+
+### Step 5.1: blog index view (hellow world)
+
+	1. Create blog/urls.py
+	2. Use views.index path to connect index fucntion in views
+	3. Write view function for index
+	4. Configure project URL
