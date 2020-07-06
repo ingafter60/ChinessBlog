@@ -20,3 +20,12 @@
 	1. Create model Category
 	2. Create model Tag
 	3. Create model Post with its relationship with Category(One-To-Many) and Tag(Many-To-Many)	
+
+### Step 4: Django migration, migrate and operation database
+
+	1. python manage.py makemigration
+	2. python manage.py migrate
+	3. python manage.py createsuperuser
+	4. register models to admin
+	5. run server
+	6. Add some categories, tags, and posts
