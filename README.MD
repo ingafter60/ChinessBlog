@@ -51,3 +51,29 @@
 
 	Eventually, the contents of the string our HTML template is passed to the HttpResponseobject and return to the browser (django at rendera function in implicitly to help us complete this process), it showed us to write HTML on this user's browser The content of the template.	
 
+### Step 6: real blog index view
+
+	1. Create md blog\static\blog
+	2. Copy and paste assets to blog\static\blog
+	3. Modify templates\index.html + link to static files
+	4. Mofify blog\views.py
+	5. Edit http://127.0.0.1:8000/admin/blog/post/1/change/
+	6. Edit http://127.0.0.1:8000/admin/blog/post/2/change/
+
+	git status
+	----------
+	modified:   .gitignore                              
+	modified:   README.MD                               
+	modified:   blog/__pycache__/views.cpython-38.pyc   
+	new file:   blog/static/blog/css/bootstrap.min.css  
+	new file:   blog/static/blog/css/custom.css         
+	new file:   blog/static/blog/css/pace.css           
+	new file:   blog/static/blog/js/bootstrap.min.js    
+	new file:   blog/static/blog/js/jquery-2.1.3.min.js 
+	new file:   blog/static/blog/js/modernizr.custom.js 
+	new file:   blog/static/blog/js/pace.min.js         
+	new file:   blog/static/blog/js/script.js           
+	modified:   blog/views.py                           
+	modified:   db.sqlite3                              
+	modified:   templates/blog/index.html               
+                                                    
