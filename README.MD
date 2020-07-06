@@ -8,3 +8,8 @@
 	3. pip install django==2.2.3
 	4. django-admin startproject blogproject .
 	5. python manage.py runserver
+
+### Step 2: Create a blog application
+
+	1. python manage.py startapp blog
+	2. setting the language and timezone	
