@@ -36,3 +36,18 @@
 	2. Use views.index path to connect index fucntion in views
 	3. Write view function for index
 	4. Configure project URL
+
+### Step 5.2: blog index view 
+
+	1. Use django template system
+	2. Create: md templates\blog
+	3. Create: touch templates\blog\index.html
+	4. Add codes to index.html
+
+	NOTE:
+	Here we are no longer directly to the string passed HttpResponse, but to call django provided renderfunctions. This function is constructed based on the parameters we pass in HttpResponse.
+
+	We first pass the HTTP request into it, then renderfind the blog template file based on the value of the second parameter / index.html and read the contents of the template. After renderour passed contextthe value of the template parameter variables replace the value of the variable we pass, {{ title }}is replaced by contextthe dictionary titlecorresponding to the value, empathy {{ welcome }}also be replaced by the corresponding value.
+
+	Eventually, the contents of the string our HTML template is passed to the HttpResponseobject and return to the browser (django at rendera function in implicitly to help us complete this process), it showed us to write HTML on this user's browser The content of the template.	
+
