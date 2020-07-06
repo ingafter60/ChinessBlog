@@ -111,3 +111,17 @@
         new file:   templates/base.html
         new file:   templates/blog/detail.html
         modified:   templates/blog/index.html
+
+### Step 9: Make the blog support Markdown syntax and code highlighting        
+
+	1. Install Python Markdown
+		> pip install markdown
+	2. Modify blog\views.py	
+
+		git status
+		----------
+		modified:   README.MD
+		modified:   blog/__pycache__/views.cpython-38.pyc
+		modified:   blog/views.py
+		modified:   templates/base.html
+		modified:   templates/blog/detail.html	
