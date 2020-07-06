@@ -12,4 +12,11 @@
 ### Step 2: Create a blog application
 
 	1. python manage.py startapp blog
-	2. setting the language and timezone	
+	2. register the blog app
+	3. setting the language and timezone	
+
+### Step 3: Create a database model for Django blogs
+
+	1. Create model Category
+	2. Create model Tag
+	3. Create model Post with its relationship with Category(One-To-Many) and Tag(Many-To-Many)	
